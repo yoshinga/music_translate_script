@@ -19,3 +19,5 @@ $ ruby music_lyrics_translate.rb "Hello World"
 # => Hello World
 # ハローワールド
 ```
+
+スクリプト実行後、クリップボードに自動で保存される。
