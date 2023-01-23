@@ -16,10 +16,15 @@ result_arry = []
 
 text_lines.zip(response_lines) do |text, response|
   result_arry.push(text.delete("\n"))
-  result_arry.push(response.delete("\n") + "\n")
+  # NOTE: 謎変換は省略する
+  if response.include?("笏")
+    result_arry.push("..." + "\n")
+  else
+    result_arry.push(response.delete("\n").gsub(/\[.*?\]/, "") + "\n")
+  end
 end
 
-result =  result_arry.join("\n")
+result = result_arry.join("\n").gsub(/(\n){3,}/, "\n\n")
 
 Clipboard.copy result
 puts result
